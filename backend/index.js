@@ -39,9 +39,6 @@ app.use("/api/pin", pinRoutes);
 
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-})
 
 // Start server and connect to DB
 app.listen(port, async () => {
