@@ -16,7 +16,10 @@ export const UserProvider = ({ children }) => {
     async function registerUser(name, email, password, navigate, fetchPins ) {
         setBtnLoading(true);
         try {
-            const data = await axios.post("/api/user/register/", {name, email, password});
+            const data = await axios.post(
+              `${import.meta.env.VITE_BACKEND_URL}/api/user/register/`,
+              { name, email, password }
+            );
             console.log(data)
             setUser(data.user);
             setIsAuth(true);
@@ -33,7 +36,10 @@ export const UserProvider = ({ children }) => {
     async function loginUser(email, password, navigate, fetchPins) {
         setBtnLoading(true);
         try {
-            const data = await axios.post("/api/user/login/", {email, password});
+            const data = await axios.post(
+              "http://localhost:5000/api/user/login/",
+              { email, password }
+            );
             console.log(data)
             setUser(data.user);
             setIsAuth(true);
